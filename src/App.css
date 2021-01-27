@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 .App-logo {
@@ -28,6 +31,148 @@
   color: #61dafb;
 }
 
+.Card-List{
+   display: flex;
+   flex-flow: row wrap;
+   position: relative;
+   justify-content: center;
+}
+
+.Poke-Card{
+   margin : 20px
+}
+
+.Poke-Card .ant-card{
+   border-radius: 42px !important;
+   background-color: black !important;
+   border : 3px solid white !important;
+}
+
+.Poke-Card .ant-card:hover{
+   border-radius: 42px !important;
+   background-color: #252525 !important;
+   border : 2px solid white !important;
+   transform: scale(1.01);
+}
+
+.Poke-Card .ant-card-head-title{
+   font-weight: bolder;
+}
+
+
+
+.card-modal .ant-card{
+   border-radius: 42px !important;
+   background-color: #252525 !important;
+   border : 0px solid white !important;
+}
+
+.card-modal .ant-card:hover{
+   border-radius: 42px !important;
+   background-color: #252525 !important;
+   border : 0px solid white !important;
+}
+
+.card-modal .ant-card-head-title{
+   font-weight: bolder;
+}
+
+.card-modal .ant-card-head{
+   background-color: #16c79a !important;
+}
+
+.name{
+   font-weight: bolder;
+   font-size: 20px;
+   color: white;
+  
+}
+
+.information-skill{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+   margin-top: -30px;
+}
+
+.information-poke{
+   color: white;
+   text-align: center;
+   margin-bottom: -20px;
+}
+
+.ant-tag{
+   background: #ded7b1 !important;
+    color: black !important;
+    border-color: black !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    font-size: 13px !important;
+    border : 2px solid black !important;
+}
+
+.name-modal{
+   font-weight: bolder;
+   font-size: 24px;
+   color: white;
+   text-align: center;
+}
+
+.pagination{
+   display: flex;
+   justify-content: center;
+}
+
+.pagination .ant-btn{
+   margin : 20px;
+}
+
+.pagination >p{
+   margin-top : 8px;
+   font-weight: bold;
+   font-size: xx-large;
+   color: white;
+}
+
+.ant-modal-header{
+   display: none;
+}
+
+.ant-modal-body{
+   display: flex;
+   justify-content: center;
+}
+
+.ant-modal-footer{
+   display: none;
+}
+
+.ant-modal-content{
+   background-color: #252525 !important;
+   border-radius: 24px !important;
+}
+
+.anticon-close{
+   display: none !important;
+}
+
+.button-footer{
+   margin-top: 10px !important;
+   width: 200px !important;
+   border-radius: 11px !important;
+   font-weight: 900 !important;
+   background: #799351 !important;
+   margin-bottom: 10px !important;
+}
+
+.ant-card-head-title{
+   color : white !important;
+}
+
+.Pokemon-Content{
+   width: 100% !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +181,5 @@
     transform: rotate(360deg);
   }
 }
+
+

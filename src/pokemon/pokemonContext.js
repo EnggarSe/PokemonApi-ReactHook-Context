@@ -11,12 +11,15 @@ const PokemonProvider = (props) => {
    const [loaded, setLoaded] = useState(true)
    const [page, setPage] = useState(1)
    const [yourPoke, setYourPoke] = useState([])
+ 
 
    useEffect(() => {
       function listPokemon(){
          axios.get("https://pokeapi.co/api/v2/pokemon")
          .then((res) =>{
             // setPokemonList(res.data.results)
+            console.log(res, 'RESPONSESS');
+            
             setCount(res.data.count)
             setPrevious(res.data.previous)
             setNext(res.data.next)

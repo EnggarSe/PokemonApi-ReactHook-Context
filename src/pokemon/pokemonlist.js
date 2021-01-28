@@ -19,14 +19,13 @@ const PokemonList = () => {
    const [loaderAdd, setLoaderAdd] = useState(false)
    const [loaderDelete, setLoaderDelete] = useState(false);
 
-   const { pokemonList, loaded, nextAction, prevAction, page, yourPoke, yourPokemon } = useContext(PokemonContext)
-   console.log(yourPoke.nickname, 'LIST POKEMONss');
+   const { pokemonList, loaded, nextAction, prevAction, page, yourPoke, yourPokemon, count } = useContext(PokemonContext)
 
    const handleOk = () => {
       setModal(false);
     };
   
-    const handleCancel = () => {
+   const handleCancel = () => {
       setModal(false);
       setGetPokemon(false);
       setPokemonNick('')
@@ -34,7 +33,6 @@ const PokemonList = () => {
    
    const detailPokemon = (data) => {
       setModal(true)
-      console.log(data, 'DATA CLICK');
       setPokemonImg(data.sprites.front_default);
       setPokemonName(data.name)
       setType(data.types)
@@ -58,7 +56,7 @@ const PokemonList = () => {
    }
 
    const onChangeInput = (e) => {
-      setPokemonNick(e.target.value)
+      setPokemonNick(e.target.value.toLowerCase())
      
    }
    
@@ -67,12 +65,8 @@ const PokemonList = () => {
       yourPoke.forEach(element => {
          cekNickname.push(element.nickname)
       })
-      console.log(cekNickname, 'CEKK');
-      console.log(pokemonNick, 'NICK');
-      
       
       if(cekNickname.includes(pokemonNick)){
-         console.log("haloo");
          notification["warning"]({
             message: 'Nickname already exist !!',
           });
@@ -109,7 +103,6 @@ const PokemonList = () => {
       })
    }
 
-   console.log(loaderAdd, 'DADS');
    
    return(
       <div classname = "Pokemon-Content" style={{width : '100%'}}>
@@ -127,6 +120,7 @@ const PokemonList = () => {
 
       {pageActive === 1 && 
        <div className = "pokemon-list">
+          <h1 style ={{color:"white", display:'flex', justifyContent:'center', marginTop:'30px'} }>Total Pokemon : {count}</h1>
        <div className = "pagination">
           <Button type="primary" shape="round" size={'small'} icon = {<CaretLeftOutlined />} onClick = {prevAction}  />
           <p>{page}</p>
@@ -156,9 +150,11 @@ const PokemonList = () => {
        </div>}
 
        {pageActive === 2 && 
+        
          <Spin spinning = {loaderDelete}>
+            <h1 style ={{color:"white", display:'flex', justifyContent:'center', marginTop:'30px'} }>Your Pokemon : {yourPoke.length}</h1>
       <div className = "Card-List">
-       
+        
          {yourPoke.map((data, index) =>
             <div className = "Poke-Card">
                <Card
